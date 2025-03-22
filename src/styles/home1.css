@@ -1,0 +1,13 @@
+/* home.css */
+.bg-custom {
+    background-image: url("../../public/mati.jpg");
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh; 
+    padding: 20px; 
+  }
+  .container {
+    background-color:transparent; 
+    padding: 20px;
+    border-radius: 10px;
+  }
