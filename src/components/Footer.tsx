@@ -1,9 +1,14 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/footer.css";
+
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-warning text-dark text-center p-3">
-      <p>&copy; 2025 matyos weather app.be happy all day!</p>
+    <footer className="modern-footer">
+      <div className="footer-content">
+        <p className="footer-text">
+          &copy; 2025 Weather App. Stay informed, stay happy! 🌤️
+        </p>
+      </div>
     </footer>
   );
 };

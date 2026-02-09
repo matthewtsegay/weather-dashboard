@@ -1,30 +1,45 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Link, useLocation } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
+import { useSelector } from "react-redux";
+import { RootState } from "../redux/store";
+import "../styles/navbar.css";
 
 const Navbar: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
+  const location = useLocation();
+  const { data } = useSelector((state: RootState) => state.weather as {
+    data: { main: { temp: number } } | null;
+  });
+
+  const currentTemp = data?.main?.temp ? `${Math.round(data.main.temp)}°C` : null;
+
   return (
-    <nav className="bg-primary text-white shadow-md">
-      <div className="container d-flex justify-content-between align-items-center">
-        <h1 className="text-2xl font-extrabold tracking-wide">🌤️ Weather application</h1>
-        <div className="d-flex space-x-10">
-          <Link
-            to="/"
-            className="text-lg px-2 py-2 font-weight-bold text-dark hover:text-yellow-300 transition duration-300"
+    <nav className={`modern-navbar ${theme}`}>
+      <div className="navbar-container">
+        <Link to="/" className="navbar-brand">
+          <span className="brand-icon">🌤️</span>
+          <span className="brand-text">Weather App</span>
+        </Link>
+        
+        <div className="navbar-actions">
+          {currentTemp && location.pathname !== "/" && (
+            <div className="temp-badge">
+              {currentTemp}
+            </div>
+          )}
+          
+          <button 
+            onClick={toggleTheme} 
+            className="theme-toggle"
+            aria-label="Toggle theme"
           >
+            {theme === "dark" ? "☀️" : "🌙"}
+          </button>
+          
+          <Link to="/" className="nav-link">
             Home
           </Link>
-          <Link
-            to="#"
-            className="text-lg px-2 py-2 font-weight-bold text-dark hover:text-yellow-300 transition duration-300"
-          >
-            login
-          </Link>
-        </div>
-        <div className="d-flex justify-content-end">
-          <div className="bg-yellow-400 text-black px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-            23°C
-          </div>
         </div>
       </div>
     </nav>

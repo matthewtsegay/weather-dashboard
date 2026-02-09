@@ -1,0 +1,36 @@
+.modern-footer {
+  background: var(--card-bg);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid var(--border-color);
+  padding: 1.5rem 2rem;
+  margin-top: auto;
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .modern-footer {
+  box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.footer-text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modern-footer {
+    padding: 1.25rem 1rem;
+  }
+
+  .footer-text {
+    font-size: 0.875rem;
+  }
+}

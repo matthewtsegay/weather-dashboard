@@ -1,0 +1,190 @@
+/* Weather Icons Animations */
+
+.weather-icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.weather-icon-container:hover {
+    transform: scale(1.1);
+}
+
+.city-card:hover .weather-icon-container {
+    transform: scale(1.15) rotate(5deg);
+}
+
+.weather-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+/* Sun Animation */
+.sun-core {
+    transform-origin: center;
+}
+
+.sun-rays {
+    transform-origin: center;
+    animation: spin 12s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Cloud Animation */
+.cloud-body,
+.cloud-body-grey,
+.cloud-body-dark,
+.cloud-front {
+    animation: float 4s ease-in-out infinite;
+}
+
+.cloud-back {
+    animation: float 4s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2px);
+    }
+}
+
+/* Rain Animation */
+.rain-drops line {
+    stroke-dasharray: 5;
+    stroke-dashoffset: 10;
+    animation: rain 1s linear infinite;
+}
+
+.rain-drops line:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.rain-drops line:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+@keyframes rain {
+    from {
+        stroke-dashoffset: 20;
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+        opacity: 0;
+    }
+}
+
+/* Lightning */
+.lightning {
+    animation: flash 3s infinite;
+    transform-origin: center;
+}
+
+@keyframes flash {
+
+    0%,
+    90%,
+    100% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    92% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    94% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    96% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Snow */
+.snow-flakes text {
+    animation: snow 3s linear infinite;
+}
+
+.snow-flakes text:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.snow-flakes text:nth-child(3) {
+    animation-delay: 2s;
+}
+
+@keyframes snow {
+    0% {
+        transform: translateY(-5px) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(10px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Mist */
+.mist line {
+    animation: mistFlow 5s linear infinite;
+}
+
+.mist line:nth-child(2) {
+    animation-delay: 1.5s;
+}
+
+.mist line:nth-child(3) {
+    animation-delay: 3s;
+}
+
+@keyframes mistFlow {
+    0% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(-5px);
+    }
+}
+
+/* Filter for clouds to give fluffy look */
+/* Note: SVG filters would normally be defined in the SVG defs, but css filter works for shadows */

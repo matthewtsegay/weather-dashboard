@@ -1,4 +1,64 @@
-# Getting Started with Create React App
+# Weather App - Modern UI
+
+A beautiful, modern weather application built with React, TypeScript, and Redux Toolkit.
+
+## Features
+
+- 🌤️ Real-time weather data for any city
+- 🎨 Modern UI with gradient backgrounds based on weather conditions
+- 🌙 Dark/Light mode support
+- ✨ Smooth weather animations (sun, rain, clouds, snow, storms)
+- 📱 Fully responsive design
+- 🎯 Clean, premium interface
+
+## Setup Instructions
+
+### 1. Install Dependencies
+
+```bash
+npm install
+```
+
+### 2. Get Your API Key
+
+1. Visit [OpenWeatherMap](https://openweathermap.org/api)
+2. Sign up for a free account
+3. Get your API key from the dashboard
+
+### 3. Configure Environment Variables
+
+Create a `.env` file in the `weather-dashboard` folder:
+
+```env
+REACT_APP_WEATHER_API_KEY=your_api_key_here
+```
+
+**Important:** Replace `your_api_key_here` with your actual API key from OpenWeatherMap.
+
+### 4. Start the Development Server
+
+```bash
+npm start
+```
+
+The app will open at [http://localhost:3000](http://localhost:3000)
+
+## Troubleshooting
+
+### Error: "Invalid API key" or "401 Unauthorized"
+
+- Make sure you created a `.env` file in the `weather-dashboard` folder
+- Verify your API key is correct
+- Restart the development server after adding/changing the `.env` file
+- Check that the variable name is exactly: `REACT_APP_WEATHER_API_KEY`
+
+### Error: "City not found"
+
+- Check the spelling of the city name
+- Try using the city name in English
+- Some cities may require country code (e.g., "London, UK")
+
+---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
